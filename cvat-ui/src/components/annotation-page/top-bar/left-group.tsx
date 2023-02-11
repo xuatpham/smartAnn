@@ -82,7 +82,7 @@ function LeftGroup(props: Props): JSX.Element {
                 <Dropdown overlay={<AnnotationMenuContainer />}>
                     <Button type='link' className='cvat-annotation-header-button'>
                         <Icon component={MainMenuIcon} />
-                        Menu
+                        More
                     </Button>
                 </Dropdown>
                 <CVATTooltip overlay={`Save current changes ${saveShortcut}`}>

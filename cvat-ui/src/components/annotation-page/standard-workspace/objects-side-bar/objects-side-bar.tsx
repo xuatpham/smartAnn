@@ -13,12 +13,13 @@ import Layout from 'antd/lib/layout';
 
 import { Canvas } from 'cvat-canvas-wrapper';
 import { Canvas3d } from 'cvat-canvas3d-wrapper';
-import { CombinedState, DimensionType } from 'reducers';
+// import { CombinedState, DimensionType } from 'reducers';
+import { CombinedState } from 'reducers';
 import LabelsList from 'components/annotation-page/standard-workspace/objects-side-bar/labels-list';
 import { adjustContextImagePosition } from 'components/annotation-page/standard-workspace/context-image/context-image';
 import { collapseSidebar as collapseSidebarAction } from 'actions/annotation-actions';
-import AppearanceBlock from 'components/annotation-page/appearance-block';
-import IssuesListComponent from 'components/annotation-page/standard-workspace/objects-side-bar/issues-list';
+// import AppearanceBlock from 'components/annotation-page/appearance-block';
+// import IssuesListComponent from 'components/annotation-page/standard-workspace/objects-side-bar/issues-list';
 
 interface OwnProps {
     objectsList: JSX.Element;
@@ -60,7 +61,8 @@ function mapDispatchToProps(dispatch: Dispatch<AnyAction>): DispatchToProps {
 
 function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.Element {
     const {
-        sidebarCollapsed, canvasInstance, collapseSidebar, objectsList, jobInstance,
+        // sidebarCollapsed, canvasInstance, collapseSidebar, objectsList, jobInstance,
+        sidebarCollapsed, canvasInstance, collapseSidebar, objectsList,
     } = props;
 
     const collapse = (): void => {
@@ -81,7 +83,7 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
         collapseSidebar();
     };
 
-    const is2D = jobInstance ? jobInstance.dimension === DimensionType.DIM_2D : true;
+    // const is2D = jobInstance ? jobInstance.dimension === DimensionType.DIM_2D : true;
     return (
         <Layout.Sider
             className='cvat-objects-sidebar'
@@ -111,14 +113,14 @@ function ObjectsSideBar(props: StateToProps & DispatchToProps & OwnProps): JSX.E
                     <LabelsList />
                 </Tabs.TabPane>
 
-                {is2D ? (
+                {/* {is2D ? (
                     <Tabs.TabPane tab={<Text strong>Issues</Text>} key='issues'>
                         <IssuesListComponent />
                     </Tabs.TabPane>
-                ) : null}
+                ) : null} */}
             </Tabs>
 
-            {!sidebarCollapsed && <AppearanceBlock />}
+            {/* {!sidebarCollapsed && <AppearanceBlock />} */}
         </Layout.Sider>
     );
 }

@@ -14,8 +14,8 @@ import Icon, {
     EditOutlined,
     LoadingOutlined,
     LogoutOutlined,
-    GithubOutlined,
-    QuestionCircleOutlined,
+    // GithubOutlined,
+    // QuestionCircleOutlined,
     CaretDownOutlined,
     ControlOutlined,
     UserOutlined,
@@ -31,11 +31,11 @@ import Text from 'antd/lib/typography/Text';
 import Select from 'antd/lib/select';
 
 import { getCore } from 'cvat-core-wrapper';
-import consts from 'consts';
+// import consts from 'consts';
 
 import { CVATLogo } from 'icons';
 import ChangePasswordDialog from 'components/change-password-modal/change-password-modal';
-import CVATTooltip from 'components/common/cvat-tooltip';
+// import CVATTooltip from 'components/common/cvat-tooltip';
 import { switchSettingsDialog as switchSettingsDialogAction } from 'actions/settings-actions';
 import { logoutAsync, authActions } from 'actions/auth-actions';
 import { CombinedState } from 'reducers';
@@ -162,36 +162,44 @@ function HeaderContainer(props: Props): JSX.Element {
         organizationsList,
     } = props;
 
-    const {
-        CHANGELOG_URL, LICENSE_URL, GITTER_URL, GITHUB_URL, GUIDE_URL, DISCORD_URL,
-    } = consts;
+    // const {
+    //     CHANGELOG_URL, LICENSE_URL, GITTER_URL, GITHUB_URL, GUIDE_URL, DISCORD_URL,
+    // } = consts;
 
     const history = useHistory();
     const location = useLocation();
 
     const showAboutModal = useCallback((): void => {
         Modal.info({
-            title: `${tool.name}`,
+            // title: `${tool.name}`,
+            title: <Text strong>Smart Annotation</Text>,
             content: (
                 <div>
-                    <p>{`${tool.description}`}</p>
+                    {/* <p>{`${tool.description}`}</p> */}
+                    <p>
+                        <Text strong>Automate your task - Better - Faster - Smarter</Text>
+                    </p>
                     <p>
                         <Text strong>Server version:</Text>
-                        <Text type='secondary'>{` ${tool.server.version}`}</Text>
+                        {/* <Text type='secondary'>{` ${tool.server.version}`}</Text> */}
+                        <Text type='secondary'>0.1</Text>
                     </p>
                     <p>
                         <Text strong>Core version:</Text>
-                        <Text type='secondary'>{` ${tool.core.version}`}</Text>
+                        {/* <Text type='secondary'>{` ${tool.core.version}`}</Text> */}
+                        <Text type='secondary'>0.1</Text>
                     </p>
                     <p>
                         <Text strong>Canvas version:</Text>
-                        <Text type='secondary'>{` ${tool.canvas.version}`}</Text>
+                        {/* <Text type='secondary'>{` ${tool.canvas.version}`}</Text> */}
+                        <Text type='secondary'>0.1</Text>
                     </p>
                     <p>
                         <Text strong>UI version:</Text>
-                        <Text type='secondary'>{` ${tool.ui.version}`}</Text>
+                        {/* <Text type='secondary'>{` ${tool.ui.version}`}</Text> */}
+                        <Text type='secondary'>0.1</Text>
                     </p>
-                    <Row justify='space-around'>
+                    {/* <Row justify='space-around'>
                         <Col>
                             <a href={CHANGELOG_URL} target='_blank' rel='noopener noreferrer'>
                                 What&apos;s new?
@@ -212,7 +220,7 @@ function HeaderContainer(props: Props): JSX.Element {
                                 Find us on Discord
                             </a>
                         </Col>
-                    </Row>
+                    </Row> */}
                 </div>
             ),
             width: 800,
@@ -462,7 +470,7 @@ function HeaderContainer(props: Props): JSX.Element {
                 ) : null}
             </div>
             <div className='cvat-right-header'>
-                <CVATTooltip overlay='Click to open repository'>
+                {/* <CVATTooltip overlay='Click to open repository'>
                     <Button
                         icon={<GithubOutlined />}
                         size='large'
@@ -476,8 +484,8 @@ function HeaderContainer(props: Props): JSX.Element {
                             window.open(GITHUB_URL, '_blank');
                         }}
                     />
-                </CVATTooltip>
-                <CVATTooltip overlay='Click to open guide'>
+                </CVATTooltip> */}
+                {/* <CVATTooltip overlay='Click to open guide'>
                     <Button
                         icon={<QuestionCircleOutlined />}
                         size='large'
@@ -491,7 +499,7 @@ function HeaderContainer(props: Props): JSX.Element {
                             window.open(GUIDE_URL, '_blank');
                         }}
                     />
-                </CVATTooltip>
+                </CVATTooltip> */}
                 <Dropdown placement='bottomRight' overlay={userMenu} className='cvat-header-menu-user-dropdown'>
                     <span>
                         <UserOutlined className='cvat-header-dropdown-icon' />

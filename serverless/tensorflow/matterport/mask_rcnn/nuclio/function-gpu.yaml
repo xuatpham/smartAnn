@@ -2,9 +2,9 @@ metadata:
   name: tf-matterport-mask-rcnn
   namespace: cvat
   annotations:
-    name: Mask RCNN via Tensorflow
+    name: Segment
     type: detector
-    framework: tensorflow
+    framework: Updating
     spec: |
       [
         { "id": 0, "name": "BG" },
@@ -91,7 +91,8 @@ metadata:
       ]
 
 spec:
-  description: Mask RCNN optimized for GPU
+  description: |
+    A sample model for segmentation. Check Supported labels for more details
 
   runtime: 'python:3.6'
   handler: main:handler
@@ -101,7 +102,7 @@ spec:
       value: /opt/nuclio/Mask_RCNN
   build:
     image: cvat.tf.matterport.mask_rcnn
-    baseImage: tensorflow/tensorflow:1.15.5-gpu-py3
+    baseImage: tensorflow/tensorflow:1.13.1-py3
     directives:
       postCopy:
         - kind: WORKDIR
@@ -113,19 +114,15 @@ spec:
         - kind: RUN
           value: curl -L https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5 -o Mask_RCNN/mask_rcnn_coco.h5
         - kind: RUN
-          value: pip3 install numpy cython pyyaml keras==2.1.0 scikit-image Pillow
+          value: pip3 install numpy cython pyyaml keras==2.1.0 scikit-image 'imageio<=2.9.0' Pillow
 
   triggers:
     myHttpTrigger:
-      maxWorkers: 1
+      maxWorkers: 2
       kind: 'http'
       workerAvailabilityTimeoutMilliseconds: 10000
       attributes:
         maxRequestBodySize: 33554432 # 32MB
-
-  resources:
-    limits:
-      nvidia.com/gpu: 1
 
   platform:
     attributes:

@@ -6,8 +6,8 @@ import './styles.scss';
 import React from 'react';
 import Layout from 'antd/lib/layout';
 import { Col, Row } from 'antd/lib/grid';
-import { CVATMinimalisticLogo } from 'icons';
-import Icon from '@ant-design/icons';
+// import { CVATMinimalisticLogo } from 'icons';
+// import Icon from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
 import SVGSigningBackground from '../../assets/signing-background.svg';
 
@@ -59,30 +59,26 @@ function SignInLayout(props: SignInLayoutComponentProps): JSX.Element {
         xl: { span: 8 },
         xxl: { span: 10 },
     };
-    const logoSizes = {
-        xs: { span: 21 },
-        sm: { span: 21 },
-        md: { span: 21 },
-        lg: { span: 21 },
-        xl: { span: 21 },
-        xxl: { span: 22 },
-    };
+    // const logoSizes = {
+    //     xs: { span: 21 },
+    //     sm: { span: 21 },
+    //     md: { span: 21 },
+    //     lg: { span: 21 },
+    //     xl: { span: 21 },
+    //     xxl: { span: 22 },
+    // };
     return (
         <Layout>
             <SVGSigningBackground className='cvat-signing-background' />
             <Header className='cvat-signing-header'>
-                <Row justify='center' align='middle'>
-                    <Col {...logoSizes}>
-                        <Icon className='cvat-logo-icon' component={CVATMinimalisticLogo} />
-                    </Col>
-                </Row>
+                {/* <Icon className='cvat-logo-icon' component={CVATMinimalisticLogo} /> */}
             </Header>
             <Layout className='cvat-signing-layout'>
                 <Content>
                     <Row justify='center' align='middle' style={{ height: '100%' }}>
                         <Col {...titleSizes} className='cvat-signing-title'>
-                            <Title>Open Data</Title>
-                            <Title>Annotation Platform</Title>
+                            <Title>Smart</Title>
+                            <Title>Annotation</Title>
                         </Col>
                         {children}
                     </Row>

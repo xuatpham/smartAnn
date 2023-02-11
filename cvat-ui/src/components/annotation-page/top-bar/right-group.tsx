@@ -5,20 +5,29 @@
 import React from 'react';
 import { Col } from 'antd/lib/grid';
 import Icon from '@ant-design/icons';
-import Select from 'antd/lib/select';
+// import Select from 'antd/lib/select';
 import Button from 'antd/lib/button';
 import Text from 'antd/lib/typography/Text';
 import Tooltip from 'antd/lib/tooltip';
 import Moment from 'react-moment';
 
 import moment from 'moment';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import {
-    FilterIcon, FullscreenIcon, InfoIcon, BrainIcon,
+    FullscreenIcon, BrainIcon,
 } from 'icons';
+
+// import {
+//     FilterIcon, FullscreenIcon, InfoIcon, BrainIcon,
+// } from 'icons';
+
+// import {
+//     CombinedState, DimensionType, Workspace, PredictorState,
+// } from 'reducers';
+
 import {
-    CombinedState, DimensionType, Workspace, PredictorState,
+    Workspace, PredictorState,
 } from 'reducers';
 
 interface Props {
@@ -35,14 +44,14 @@ interface Props {
 
 function RightGroup(props: Props): JSX.Element {
     const {
-        showStatistics,
-        changeWorkspace,
+        // showStatistics,
+        // changeWorkspace,
         switchPredictor,
-        workspace,
+        // workspace,
         predictor,
-        jobInstance,
+        // jobInstance,
         isTrainingActive,
-        showFilters,
+        // showFilters,
     } = props;
     const annotationAmount = predictor.annotationAmount || 0;
     const mediaAmount = predictor.mediaAmount || 0;
@@ -121,7 +130,7 @@ function RightGroup(props: Props): JSX.Element {
         predictorClassName += ' cvat-predictor-inprogress';
     }
 
-    const filters = useSelector((state: CombinedState) => state.annotation.annotations.filters);
+    // const filters = useSelector((state: CombinedState) => state.annotation.annotations.filters);
 
     return (
         <Col className='cvat-annotation-header-right-group'>
@@ -155,11 +164,11 @@ function RightGroup(props: Props): JSX.Element {
                 <Icon component={FullscreenIcon} />
                 Fullscreen
             </Button>
-            <Button type='link' className='cvat-annotation-header-button' onClick={showStatistics}>
+            {/* <Button type='link' className='cvat-annotation-header-button' onClick={showStatistics}>
                 <Icon component={InfoIcon} />
-                Info
-            </Button>
-            <Button
+                Statistics
+            </Button> */}
+            {/* <Button
                 type='link'
                 className={`cvat-annotation-header-button ${filters.length ? 'filters-armed' : ''}`}
                 onClick={showFilters}
@@ -195,7 +204,7 @@ function RightGroup(props: Props): JSX.Element {
                         return null;
                     })}
                 </Select>
-            </div>
+            </div> */}
         </Col>
     );
 }

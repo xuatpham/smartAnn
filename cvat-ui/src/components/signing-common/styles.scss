@@ -8,27 +8,41 @@ $signing-font: 'Roboto Flex', sans-serif;
 
 $heading-color: white;
 $error-color: #ff4d4f;
-$action-button-color-1: black;
+$action-button-color-1: rgba(165, 80, 80, 0.68);
 $action-button-color-2: gray;
 $action-button-color-3: #d4d4d4;
-$placeholder-color: #c5bfbf;
 
 $base-transition: all 0.8s ease;
-$input-transition: all 0.3s ease;
 
 $social-google-background: #4286f5;
 
 .cvat-signing-layout {
     font-family: $signing-font;
+    background-color: #00000b;
 }
 
 .cvat-signing-title {
     .ant-typography {
         color: $heading-color;
         margin: 0;
-        font-size: 68px;
+        font-size: 85px;
+        font-family: $heading-font;
+        font-weight: 600;
+    }
+
+    .ant-typography:last-child {
+        margin: 0;
+    }
+}
+
+.cvat-sign-in-text {
+    .ant-typography {
+        margin: 0;
+        font-size: 38px;
         font-family: $heading-font;
         font-weight: 400;
+        color: white;
+        text-align: right;
     }
 
     .ant-typography:last-child {
@@ -38,13 +52,7 @@ $social-google-background: #4286f5;
 
 .cvat-signing-header {
     background: transparent;
-    position: fixed;
-    padding: $grid-unit-size*2 0 0 0;
-    width: 100%;
-
-    svg {
-        transform: none;
-    }
+    position: absolute;
 }
 
 .cvat-signing-background {
@@ -68,43 +76,21 @@ $social-google-background: #4286f5;
     }
 }
 
-.cvat-input-floating-label {
-    .ant-input-prefix {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        font-size: 20px;
-        transition: $input-transition;
-        transform-origin: left top;
-
-        .ant-typography {
-            color: $placeholder-color;
-        }
-    }
-}
-
-.cvat-input-floating-label-above {
-    @extend .cvat-input-floating-label;
-
-    .ant-input-prefix {
-        transition: $input-transition;
-        transform: translateY(-100%) scale(0.7);
-    }
-}
-
 .cvat-credentials-form-item {
     .ant-input-affix-wrapper {
         border: none;
         box-shadow: 0 1px 0 0 $border-color-1;
-        border-radius: 0;
+        border-radius: 120;
         padding: 0;
         transition: $base-transition;
     }
 
-    .ant-input-affix-wrapper-focused {
-        @extend .cvat-input-floating-label-above;
+    .ant-input-prefix {
+        position: absolute;
+        z-index: 1;
+    }
 
+    .ant-input-affix-wrapper-focused {
         box-shadow: 0 2px 0 0 black;
     }
 
@@ -124,8 +110,11 @@ $social-google-background: #4286f5;
         }
     }
 
-    .cvat-signing-input-not-empty {
-        @extend .cvat-input-floating-label;
+    .ant-typography {
+        text-transform: uppercase;
+        color: $border-color-1;
+        font-size: 12px;
+        letter-spacing: 1px;
     }
 }
 
@@ -147,30 +136,42 @@ $social-google-background: #4286f5;
     margin-bottom: $grid-unit-size*4;
 }
 
+.ant-btn[disabled],
+.ant-btn[disabled]:hover,
+.ant-btn[disabled]:focus,
+.ant-btn[disabled]:active {
+    color: none;
+    border-color: none;
+    background: none;
+    text-shadow: none;
+    box-shadow: none;
+}
+
 .cvat-credentials-action-button {
     width: 100%;
     border-radius: $grid-unit-size*2;
-    background-color: $action-button-color-1;
     height: $grid-unit-size*11;
     color: white;
     font-size: 16px;
     font-weight: bold;
     border: none;
     box-shadow: none;
+    background-color: rgb(49 124 133 / 39%);
     transition: $base-transition;
 
     &:hover,
     &:focus {
-        background-color: $action-button-color-1;
+        background-color: rgba(8, 75, 82, 0.815);
         color: $action-button-color-2;
     }
 }
 
 .cvat-login-form-wrapper {
-    border-radius: $grid-unit-size * 4;
-    background: $background-color-1;
+    border-radius: $grid-unit-size * 6;
+    // background: $background-color-1;
+    background: rgb(12 31 60 / 49%);
     padding: $grid-unit-size * 6;
-    height: $grid-unit-size*81;
+    height: $grid-unit-size*100;
 
     .cvat-credentials-form-item {
         height: $grid-unit-size*9.5;
@@ -349,8 +350,8 @@ $social-google-background: #4286f5;
     }
 
     letter-spacing: 1px;
-    padding: 0 $grid-unit-size*4 !important;
     margin-bottom: $grid-unit-size;
+    padding: $grid-unit-size $grid-unit-size*4;
     display: flex;
 }
 

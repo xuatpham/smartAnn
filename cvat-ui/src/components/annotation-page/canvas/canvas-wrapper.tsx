@@ -5,9 +5,10 @@
 
 import React from 'react';
 import Layout from 'antd/lib/layout';
-import Slider from 'antd/lib/slider';
+// import Slider from 'antd/lib/slider';
 import Dropdown from 'antd/lib/dropdown';
-import { PlusCircleOutlined, UpOutlined } from '@ant-design/icons';
+import { UpOutlined } from '@ant-design/icons';
+// import { PlusCircleOutlined, UpOutlined } from '@ant-design/icons';
 
 import GlobalHotKeys, { KeyMap } from 'utils/mousetrap-react';
 import {
@@ -18,7 +19,7 @@ import { Canvas } from 'cvat-canvas-wrapper';
 import { Canvas3d } from 'cvat-canvas3d-wrapper';
 import { getCore } from 'cvat-core-wrapper';
 import consts from 'consts';
-import CVATTooltip from 'components/common/cvat-tooltip';
+// import CVATTooltip from 'components/common/cvat-tooltip';
 import FrameTags from 'components/annotation-page/tag-annotation-workspace/frame-tags';
 import ImageSetupsContent from './image-setups-content';
 import BrushTools from './brush-tools';
@@ -756,16 +757,16 @@ export default class CanvasWrapperComponent extends React.PureComponent<Props> {
 
     public render(): JSX.Element {
         const {
-            maxZLayer,
-            curZLayer,
-            minZLayer,
+            // maxZLayer,
+            // curZLayer,
+            // minZLayer,
             keyMap,
             switchableAutomaticBordering,
             automaticBordering,
             showTagsOnFrame,
             onSwitchAutomaticBordering,
-            onSwitchZLayer,
-            onAddZLayer,
+            // onSwitchZLayer,
+            // onAddZLayer,
         } = this.props;
 
         const preventDefault = (event: KeyboardEvent | undefined): void => {
@@ -811,7 +812,7 @@ export default class CanvasWrapperComponent extends React.PureComponent<Props> {
                     <UpOutlined className='cvat-canvas-image-setups-trigger' />
                 </Dropdown>
 
-                <div className='cvat-canvas-z-axis-wrapper'>
+                {/* <div className='cvat-canvas-z-axis-wrapper'>
                     <Slider
                         disabled={minZLayer === maxZLayer}
                         min={minZLayer}
@@ -825,7 +826,7 @@ export default class CanvasWrapperComponent extends React.PureComponent<Props> {
                     <CVATTooltip title={`Add new layer ${maxZLayer + 1} and switch to it`}>
                         <PlusCircleOutlined onClick={onAddZLayer} />
                     </CVATTooltip>
-                </div>
+                </div> */}
 
                 {showTagsOnFrame ? (
                     <div className='cvat-canvas-frame-tags'>
